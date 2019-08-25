@@ -1,0 +1,63 @@
+body {
+    background-color: rgb(29, 29, 29);
+    color: black;
+    font-family: 'PT Serif', sans-serif;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 1.5em;
+    color: rgba(255,153,0,1);
+}
+
+option {
+    border-radius: 15px;
+    background-color: #ff9900;
+}
+
+form {
+    padding: 3em;
+    border-radius: 20px;
+    margin:5em 0;
+    background: linear-gradient(270deg, rgba(255,153,0,1) 0%, rgba(255,102,0,1) 100%);
+    background: -moz-linear-gradient(270deg, rgba(255,153,0,1) 0%, rgba(255,102,0,1) 100%);
+    background: -webkit-linear-gradient(270deg, rgba(255,153,0,1) 0%, rgba(255,102,0,1) 100%);
+    
+}
+
+label {
+    margin-top: 1em;
+    margin-bottom: 0.1em; 
+    display: block;
+}
+
+input, textarea, select {
+    width: 100%;
+    background-color: rgba(0,0,0,0);
+    color: black;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 15px;
+    border-color: black;
+    border-width: 2px;
+}
+
+button {
+    width: 100%;
+    padding: 0.4em;
+    margin-top: 1em;
+    background-color: rgba(0,0,0,0);
+    color: black;
+    border-radius: 15px;
+    border-color: black;
+    border-width: 2px;
+}
+
+textarea {
+    height: 3em;
+}
+
+#pitanja, #poruka {
+    display: none;
+}

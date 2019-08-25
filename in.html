@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Prijava za prio tim</title>
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div id="forma">
+            <h1>Prijava za <span id="change"></span> priUO tim</h1>
+            <form name="prijava">
+                <div id="form">
+                    <select class="col-12" id="tim" onchange="change()" name="tim">
+                        <option value="" disabled selected> Izaberite tim za koji se prijavljujete</option>
+                        <option value="PR">PR</option>
+                        <option value="CR">CR</option>
+                        <option value="HR">HR</option>
+                        <option value="KM">KM</option>
+                        <option value="AR">AR</option>
+                    </select>
+                    <div class="form-row justify-content-between">
+                        <div class="col col-5">
+                            <label>Ime</label>
+                            <input type="text" id="name" name="name">
+                        </div>
+                        <div class="col col-5">
+                            <label>Prezime</label>
+                            <input type="text" id="surname" name="surname">
+                        </div>
+                    </div>
+                    <div class="form-row justify-content-between">
+                        <div class="col col-5">
+                            <label>Email</label>
+                            <input type="text" id="email" name="email">
+                        </div>
+                        <div class="col col-5">
+                            <label>Telefon (+381...)</label>
+                            <input type="text" id="phone" name="phone">
+                        </div>
+                    </div>
+                    <div id="pitanja">
+                        <div>
+                            <label id="pitanje#1"></label>
+                            <textarea id="pitanje #1" name="pitanje #1" rows="5"></textarea>
+                        </div>
+                        <div>
+                            <label id="pitanje#2"></label>
+                            <textarea id="pitanje #2" name="pitanje #2" rows="5"></textarea>
+                        </div>
+                        <div>
+                            <label id="pitanje#3"></label>
+                            <textarea id="pitanje #3" name="pitanje #3" rows="5"></textarea>
+                        </div>
+                        <div>
+                            <label id="pitanje#4"></label>
+                            <textarea id="pitanje #4" name="pitanje #4" rows="5"></textarea>
+                        </div>
+                        <div>
+                            <label id="pitanje#5"></label>
+                            <textarea id="pitanje #5" name="pitanje #5" rows="5"></textarea>
+                        </div>
+                        <div>
+                            <label id="pitanje#6"></label>
+                            <textarea id="pitanje #6" name="pitanje #6" rows="5"></textarea>
+                        </div>
+                        <div>
+                            <label id="pitanje#7"></label>
+                            <textarea id="pitanje #7" name="pitanje #7" rows="5"></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" onclick="send()">Pošalji prijavu</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="poruka">
+                    <h2 class="text-center">Vaša prijava je poslata! </h2>
+                    <h4 class="text-center"> Ukoliko ne dobijete email potvrde u naredna 24h obratite se članu UO-a za čiji ste tim poslali prijavu</h4>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    
+        <!-- Custom JS -->
+    <script type="text/javascript" src="./prijava.js"></script>
+
+</body>
+
+</html>
