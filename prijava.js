@@ -1,38 +1,6 @@
-var pitanjaPR = ['Zbog čega se prijavljuješ baš za KM tim i na koji način želiš da doprineseš radu ovog tima?',
-    'Koja iskustva imaš, a misliš da će ti značiti u radu ovog tima',
-    'Šta želiš da naučiš radom u ovom timu?',
-    'Šta je najvažnije što mora postojati kako bi ovaj tim dobro funkcionisao i zašto?',
-    'Koja su tvoja očekivanja od koordinatora tima?'
-]
+var maxBrojPitanja = 7;
 
-var pitanjaCR = ['Zbog čega se prijavljuješ baš za KM tim i na koji način želiš da doprineseš radu ovog tima?',
-    'Koja iskustva imaš, a misliš da će ti značiti u radu ovog tima',
-    'Šta želiš da naučiš radom u ovom timu?',
-    'Šta je najvažnije što mora postojati kako bi ovaj tim dobro funkcionisao i zašto?',
-    'Koja su tvoja očekivanja od koordinatora tima?'
-]
-
-var pitanjaHR = ['Zbog čega se prijavljuješ baš za KM tim i na koji način želiš da doprineseš radu ovog tima?',
-    'Koja iskustva imaš, a misliš da će ti značiti u radu ovog tima',
-    'Šta želiš da naučiš radom u ovom timu?',
-    'Šta je najvažnije što mora postojati kako bi ovaj tim dobro funkcionisao i zašto?',
-    'Koja su tvoja očekivanja od koordinatora tima?'
-]
-
-var pitanjaAR = ['Zbog čega se prijavljuješ baš za KM tim i na koji način želiš da doprineseš radu ovog tima?',
-    'Koja iskustva imaš, a misliš da će ti značiti u radu ovog tima',
-    'Šta želiš da naučiš radom u ovom timu?',
-    'Šta je najvažnije što mora postojati kako bi ovaj tim dobro funkcionisao i zašto?',
-    'Koja su tvoja očekivanja od koordinatora tima?'
-]
-
-var pitanjaKM = ['Zbog čega se prijavljuješ baš za KM tim i na koji način želiš da doprineseš radu ovog tima?',
-    'Koja iskustva imaš, a misliš da će ti značiti u radu ovog tima',
-    'Šta želiš da naučiš radom u ovom timu?',
-    'Šta je najvažnije što mora postojati kako bi ovaj tim dobro funkcionisao i zašto?',
-    'Koja su tvoja očekivanja od koordinatora tima?'
-]
-
+/* Slanje forme klikom na submit */
 const form = document.forms['prijava'];
 const scriptURL = 'https://script.google.com/macros/s/AKfycbwqYPK58ILeGylN23SeIwv5BsVzJAL7Zb-XIjWjzEE9CcqYa_k/exec';
 
@@ -40,92 +8,73 @@ const scriptURL = 'https://script.google.com/macros/s/AKfycbwqYPK58ILeGylN23SeIw
 form.addEventListener('submit', e => {
     e.preventDefault()
     fetch(scriptURL, { method: 'POST', body: new FormData(form) }).then(response => console.log('Success!', response)).catch(error => console.error('Error!', error.message))
+    send();
 })
 
+/* Promena pitanja i brisanje unetih odgovora klikom na drugi tim u selektoru */
 function change() {
-    var tim = document.getElementById('tim').value;
+    let tim = document.getElementById('tim').value;
 
     document.getElementById('change').innerText = tim;
 
     pitanja(tim);
     reset();
-
 }
 
+/* Izmena pitanja pri promeni tima u selektoru i sakrivanje polja za pitanja koja su visak (ukoliko ima manje pitanja od max broja pitanja) */
 function pitanja(tim) {
-    switch (tim) {
-        case 'PR': document.getElementById('pitanje#1').innerText = pitanjaPR[0];
-            document.getElementById('pitanje#2').innerText = pitanjaPR[1];
-            document.getElementById('pitanje#3').innerText = pitanjaPR[2];
-            document.getElementById('pitanje#4').innerText = pitanjaPR[3];
-            document.getElementById('pitanje#5').innerText = pitanjaPR[4];
-            document.getElementById('pitanje#6').style.display = 'none';
-            document.getElementById('pitanje #6').style.display = 'none';
-            document.getElementById('pitanje#7').style.display = 'none';
-            document.getElementById('pitanje #7').style.display = 'none';
-            break;
-        case 'CR': document.getElementById('pitanje#1').innerText = pitanjaCR[0];
-            document.getElementById('pitanje#2').innerText = pitanjaCR[1];
-            document.getElementById('pitanje#3').innerText = pitanjaCR[2];
-            document.getElementById('pitanje#4').innerText = pitanjaCR[3];
-            document.getElementById('pitanje#5').innerText = pitanjaCR[4];
-            document.getElementById('pitanje#6').style.display = 'none';
-            document.getElementById('pitanje #6').style.display = 'none';
-            document.getElementById('pitanje#7').style.display = 'none';
-            document.getElementById('pitanje #7').style.display = 'none';
-            break;
-        case 'HR': document.getElementById('pitanje#1').innerText = pitanjaHR[0];
-            document.getElementById('pitanje#2').innerText = pitanjaHR[1];
-            document.getElementById('pitanje#3').innerText = pitanjaHR[2];
-            document.getElementById('pitanje#4').innerText = pitanjaHR[3];
-            document.getElementById('pitanje#5').innerText = pitanjaHR[4];
-            document.getElementById('pitanje#6').style.display = 'none';
-            document.getElementById('pitanje #6').style.display = 'none';
-            document.getElementById('pitanje#7').style.display = 'none';
-            document.getElementById('pitanje #7').style.display = 'none';
-            break;
-        case 'AR': document.getElementById('pitanje#1').innerText = pitanjaAR[0];
-            document.getElementById('pitanje#2').innerText = pitanjaAR[1];
-            document.getElementById('pitanje#3').innerText = pitanjaAR[2];
-            document.getElementById('pitanje#4').innerText = pitanjaAR[3];
-            document.getElementById('pitanje#5').innerText = pitanjaAR[4];
-            document.getElementById('pitanje#6').style.display = 'none';
-            document.getElementById('pitanje #6').style.display = 'none';
-            document.getElementById('pitanje#7').style.display = 'none';
-            document.getElementById('pitanje #7').style.display = 'none';
-            break;
-        case 'KM': document.getElementById('pitanje#1').innerText = pitanjaKM[0];
-            document.getElementById('pitanje#2').innerText = pitanjaKM[1];
-            document.getElementById('pitanje#3').innerText = pitanjaKM[2];
-            document.getElementById('pitanje#4').innerText = pitanjaKM[3];
-            document.getElementById('pitanje#5').innerText = pitanjaKM[4];
-            document.getElementById('pitanje#6').style.display = 'none';
-            document.getElementById('pitanje #6').style.display = 'none';
-            document.getElementById('pitanje#7').style.display = 'none';
-            document.getElementById('pitanje #7').style.display = 'none';
-            break;
+
+    let spisakPitanja = ['Zbog čega se prijavljuješ baš za ' + tim + ' tim i na koji način želiš da doprineseš radu ovog tima?',
+        'Koja iskustva imaš, a misliš da će ti značiti u radu ovog tima',
+        'Šta želiš da naučiš radom u ovom timu?',
+        'Šta je najvažnije što mora postojati kako bi ovaj tim dobro funkcionisao i zašto?',
+        'Koja su tvoja očekivanja od koordinatora tima?'
+    ]
+
+    for (let i = 0; i < spisakPitanja.length; i++) {
+        let rbr = i + 1;
+        let id = 'pitanje#' + rbr;
+        document.getElementById(id).innerText = spisakPitanja[i];
     }
+
+    for (let i = spisakPitanja.length + 1; i <= maxBrojPitanja; i++) {
+        let idQ = 'pitanje#' + i;
+        let idA = 'pitanje #' + i;
+        document.getElementById(idQ).style.display = 'none';
+        document.getElementById(idA).style.display = 'none';
+    }
+
+    if (tim === 'CR'){
+        rbr = spisakPitanja.length + 1
+        let id = 'pitanje#' + rbr
+        let idQ = id;
+        let idA = 'pitanje #' + rbr;
+        document.getElementById(id).innerText = 'Šta je burek?';
+        document.getElementById(idQ).style.display = 'block';
+        document.getElementById(idA).style.display = 'block';
+    }
+
     document.getElementById('pitanja').style.display = 'block';
 }
 
+/* Brisanje unetih odgovora nakon promene izbora tima */
 function reset() {
-    document.getElementById('pitanje #1').value = '';
-    document.getElementById('pitanje #2').value = '';
-    document.getElementById('pitanje #3').value = '';
-    document.getElementById('pitanje #4').value = '';
-    document.getElementById('pitanje #5').value = '';
-    document.getElementById('pitanje #6').value = '';
-    document.getElementById('pitanje #7').value = '';
+    for (let i = 1; i <= maxBrojPitanja; i++) {
+        let id = 'pitanje #' + i;
+        document.getElementById(id).value = '';
+    }
 }
 
+/* Sakrivanje forme i prikaz poruke nakon submitovanja */
 function send() {
     document.getElementById('form').style.display = 'none';
     document.getElementById('poruka').style.display = 'block';
 }
 
-/* RESET
+/******* za vise timova sa razlicitim pitanjima *******/
 
-var pitanjaPR = ['',
+/* za svaki tim napraviti poseban array sa pitanjima na pocetku koda
+var pitanjaTIM = ['',
     '',
     '',
     '',
@@ -134,97 +83,20 @@ var pitanjaPR = ['',
     ''
 ]
 
-var pitanjaCR = ['',
-    '',
-    '',
-    '',
-    '',
-    '',
-    ''
-]
-
-var pitanjaHR = ['',
-    '',
-    '',
-    '',
-    '',
-    '',
-    ''
-]
-
-var pitanjaAR = ['',
-    '',
-    '',
-    '',
-    '',
-    '',
-    ''
-]
-
-var pitanjaKM = ['',
-    '',
-    '',
-    '',
-    '',
-    '',
-    ''
-]
-
+/* ovaj deo se ubacuje u funkciju pitanja 
 switch (tim) {
-        case 'PR': document.getElementById('pitanje#1').innerText = pitanjaPR[0];
-            document.getElementById('pitanje#2').innerText = pitanjaPR[1];
-            document.getElementById('pitanje#3').innerText = pitanjaPR[2];
-            document.getElementById('pitanje#4').innerText = pitanjaPR[3];
-            document.getElementById('pitanje#5').innerText = pitanjaPR[4];
-            document.getElementById('pitanje#6').innerText = pitanjaPR[5];
-            document.getElementById('pitanje#7').innerText = pitanjaPR[6];
-            break;
-        case 'CR': document.getElementById('pitanje#1').innerText = pitanjaCR[0];
-            document.getElementById('pitanje#2').innerText = pitanjaCR[1];
-            document.getElementById('pitanje#3').innerText = pitanjaCR[2];
-            document.getElementById('pitanje#4').innerText = pitanjaCR[3];
-            document.getElementById('pitanje#5').innerText = pitanjaCR[4];
-            document.getElementById('pitanje#6').innerText = pitanjaCR[5];
-            document.getElementById('pitanje#7').innerText = pitanjaCR[6];
-            break;
-        case 'HR': document.getElementById('pitanje#1').innerText = pitanjaHR[0];
-            document.getElementById('pitanje#2').innerText = pitanjaHR[1];
-            document.getElementById('pitanje#3').innerText = pitanjaHR[2];
-            document.getElementById('pitanje#4').innerText = pitanjaHR[3];
-            document.getElementById('pitanje#5').innerText = pitanjaHR[4];
-            document.getElementById('pitanje#6').innerText = pitanjaHR[5];
-            document.getElementById('pitanje#7').innerText = pitanjaHR[6];
-            break;
-        case 'AR': document.getElementById('pitanje#1').innerText = pitanjaAR[0];
-            document.getElementById('pitanje#2').innerText = pitanjaAR[1];
-            document.getElementById('pitanje#3').innerText = pitanjaAR[2];
-            document.getElementById('pitanje#4').innerText = pitanjaAR[3];
-            document.getElementById('pitanje#5').innerText = pitanjaAR[4];
-            document.getElementById('pitanje#6').innerText = pitanjaAR[5];
-            document.getElementById('pitanje#7').innerText = pitanjaAR[6];
-            break;
-        case 'KM': document.getElementById('pitanje#1').innerText = pitanjaKM[0];
-            document.getElementById('pitanje#2').innerText = pitanjaKM[1];
-            document.getElementById('pitanje#3').innerText = pitanjaKM[2];
-            document.getElementById('pitanje#4').innerText = pitanjaKM[3];
-            document.getElementById('pitanje#5').innerText = pitanjaKM[4];
-            document.getElementById('pitanje#6').innerText = pitanjaKM[5];
-            document.getElementById('pitanje#7').innerText = pitanjaKM[6];
-            break;
-    }
+        case 'tim': for (let i = 0; i < pitanjaTIM.length; i++) {
+                        let rbr = i + 1;
+                        let id = 'pitanje#' + rbr;
+                        document.getElementById(id).innerText = pitanjaTIM[i];
+                    }
 
-document.getElementById('pitanje#1').style.display = 'none';
-document.getElementById('pitanje #1').style.display = 'none';
-document.getElementById('pitanje#2').style.display = 'none';
-document.getElementById('pitanje #2').style.display = 'none';
-document.getElementById('pitanje#3').style.display = 'none';
-document.getElementById('pitanje #3').style.display = 'none';
-document.getElementById('pitanje#4').style.display = 'none';
-document.getElementById('pitanje #4').style.display = 'none';
-document.getElementById('pitanje#5').style.display = 'none';
-document.getElementById('pitanje #5').style.display = 'none';
-document.getElementById('pitanje#6').style.display = 'none';
-document.getElementById('pitanje #6').style.display = 'none';
-document.getElementById('pitanje#7').style.display = 'none';
-document.getElementById('pitanje #7').style.display = 'none';
+                    for (let i = spisakPitanja.length + 1; i <= maxBrojPitanja; i++) {
+                        let idQ = 'pitanje#' + i;
+                        let idA = 'pitanje #' + i;
+                        document.getElementById(idQ).style.display = 'none';
+                        document.getElementById(idA).style.display = 'none';
+                    }
+                    break;
+    }
 */
