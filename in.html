@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Prijava za <span id="change"></span> priUO tim</h1>
+    <select id="tim" onchange="change()">
+        <option value=""></option>
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+      </select>
+
+      <script>
+          function change() {
+              let tim = document.getElementById("tim").value;
+              document.getElementById('change').innerText = tim;
+          }
+      </script>
+</body>
+</html>
