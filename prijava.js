@@ -29,12 +29,6 @@ function change() {
 
 /* Izmena pitanja pri promeni tima u selektoru i sakrivanje polja za pitanja koja su visak (ukoliko ima manje pitanja od max broja pitanja) */
 function pitanja(tim) {
-  let celaForma = document.getElementById('forma');
-  let dokument = document.getElementsByTagName('body')[0];
-
-  celaForma.style.height = '1900px';
-  celaForma.style.marginTop = '41em';
-  dokument.style.overflow = 'visible';
 
   let spisakPitanja = [
     'Zbog čega se prijavljuješ baš za ' +

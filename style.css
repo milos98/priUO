@@ -9,7 +9,6 @@
 }
 
 body {
-  min-height: 300vh;
   background: linear-gradient(
       to right top,
       #e2f23e,
@@ -18,21 +17,20 @@ body {
       #e1a815,
       #da9015
     )
-    no-repeat;
+    fixed;
   background-size: cover;
-  overflow: hidden;
 }
 
 #forma {
   width: 460px;
-  height: 580px;
   background: #f1f1f1;
   padding: 80px 40px;
   border-radius: 10px;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
   position: absolute;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   opacity: 0;
   transition: 2s;
 }
@@ -137,9 +135,6 @@ textarea {
 }
 
 @media (max-width: 770px) {
-  #forma {
-    height: 700px;
-  }
 
   .txtb input {
     font-size: 12px;
@@ -160,9 +155,7 @@ textarea {
 
 @media (max-width: 550px) {
   #forma {
-    margin: 0;
     width: 250px;
-    height: 620px;
   }
 
   #forma h1 {
