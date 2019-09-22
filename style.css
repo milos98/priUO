@@ -9,6 +9,7 @@
 }
 
 body {
+  height: 100vh;
   background: linear-gradient(
       to right top,
       #e2f23e,
