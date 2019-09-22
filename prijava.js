@@ -7,7 +7,7 @@ window.onload = function() {
 /* Slanje forme klikom na submit */
 const form = document.forms['prijava'];
 const scriptURL =
-  'https://script.google.com/macros/s/AKfycbwqYPK58ILeGylN23SeIwv5BsVzJAL7Zb-XIjWjzEE9CcqYa_k/exec';
+  '';
 
 form.addEventListener('submit', e => {
   e.preventDefault();
