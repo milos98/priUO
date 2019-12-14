@@ -1,4 +1,5 @@
 var maxBrojPitanja = 7;
+var tim;
 
 window.onload = function() {
   document.getElementById('forma').style.opacity = 1;
@@ -7,19 +8,32 @@ window.onload = function() {
 /* Slanje forme klikom na submit */
 const form = document.forms['prijava'];
 const scriptURL =
-  '';
+  'https://script.google.com/macros/s/AKfycbxaxycATP6JCim0PkjqJXEJWzVH_4qQDlrDymxT8MxUN82RaAO8/exec';
 
 form.addEventListener('submit', e => {
   e.preventDefault();
   fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-    .then(response => console.log('Success!', response))
-    .catch(error => console.error('Error!', error.message));
-  send();
+    .then(response =>{
+      console.log('Success!', response)
+       Swal.fire({
+        text: 'Hvala na prijavljivanju za priUO ' + tim + ' tim! Vaša prijava je uspešno poslata!',
+        type: 'success',
+        confirmButtonText: 'Ok'
+    })
+    })
+    .catch(error => {
+      console.error('Error!', error.message)
+      Swal.fire({
+        text: 'Došlo je do greške!',
+        type: 'error',
+        confirmButtonText: 'Ok'
+    })
+    });
 });
 
 /* Promena pitanja i brisanje unetih odgovora klikom na drugi tim u selektoru */
 function change() {
-  let tim = document.getElementById('tim').value;
+  tim = document.getElementById('tim').value;
 
   document.getElementById('change').innerText = tim;
 
@@ -72,12 +86,6 @@ function reset() {
     let id = 'pitanje #' + i;
     document.getElementById(id).value = '';
   }
-}
-
-/* Sakrivanje forme i prikaz poruke nakon submitovanja */
-function send() {
-  document.getElementById('form').style.display = 'none';
-  document.getElementById('poruka').style.display = 'block';
 }
 
 /******* za vise timova sa razlicitim pitanjima *******/
